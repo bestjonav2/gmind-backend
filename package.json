@@ -4,11 +4,26 @@
   "description": "backend for gmind app",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.17.1"
+    "@types/express": "^4.17.9",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.15",
+    "tsc": "^1.20150623.0",
+    "typescript": "^4.1.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/cors": "^2.8.8",
+    "@types/mongoose": "^5.10.1",
+    "debug": "^4.3.1"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node .",
+    "build": "babel --delete-dir-on-start --out-dir dist --copy-files --ignore \"**/__tests__/**,**/__mocks__/**\" --no-copy-ignored src",
+    "start:dev": "nodemon dist/index.js",
+    "build:dev": "tsc --watch --preserveWatchOutput",
+    "dev": "concurrently \"npm:build:dev\" \"npm:start:dev\""
   },
   "author": "bj",
   "license": "ISC"
