@@ -6,7 +6,7 @@ const api = express();
 // ******** Routes
 // Test routes
 api.get("/", (req, res) => {
-  res.send("testeroni");
+  res.send("testerona");
 });
 // Post routes
 api.use("/post", postRouter);
